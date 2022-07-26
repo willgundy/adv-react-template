@@ -10,9 +10,13 @@
   
     a {
       padding: 3px 7px;
-      color: initial;
+      color: #FFFFFA;
       text-decoration: none;
       text-transform: uppercase;
       font-size: 0.8em;
+
+      &:hover {
+        font-size: 1em;
+      }
     }
   }

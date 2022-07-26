@@ -1,5 +1,9 @@
+import styles from './List.css';
+
 export default function List() {
   return (
-    <div>List Page</div>
+    <div className={styles.List}>
+      <p>List Page</p>
+    </div>
   );
 }
