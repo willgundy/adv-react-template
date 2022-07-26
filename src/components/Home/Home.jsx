@@ -1,6 +1,10 @@
+import styles from './Home.css';
+
 export default function Home() {
   return (
-    <div>Home Page</div>
+    <div className={styles.Home}>
+      <p>Home page stuff</p>
+    </div>
   );
 }
   
