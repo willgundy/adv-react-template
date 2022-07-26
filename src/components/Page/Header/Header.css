@@ -1,0 +1,13 @@
+.Header {
+    position: sticky;
+    top: 0;
+    background: #252627;
+    color: #FFFFFA;
+  
+    height: 30px;
+  
+    display: grid;
+    grid-template-columns: max-content 1fr 50px;
+    gap: 20px;
+    align-items: center;
+}
