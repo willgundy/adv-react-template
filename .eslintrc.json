@@ -6,7 +6,13 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "parser": "babel-eslint",
+  "settings": {
+    "react": {
+      "pragma": "React", // Pragma to use, default to "React"
+      "fragment": "Fragment",
+      "version": "detect"
+    }
+  },
   "globals": {
     "process": true
   },
