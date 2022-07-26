@@ -1,15 +1,21 @@
 import { Link } from 'react-router-dom';
 import styles from './Header.css';
+import Navigation from './Navigation';
 
 export default function Header() {
   return (
     <header className={styles.Header}>
-      Header
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="list">List</Link>
-        <Link to="about">About</Link>
-      </nav>
+      <div className={styles.MenuContainer}>
+        <button>test</button>
+      </div>
+
+      <h1>My App</h1>
+
+      <div className={styles.NavigationContainer}>
+        <Navigation />
+      </div>
+
+      <div>User</div>
     </header>
   );
 }
