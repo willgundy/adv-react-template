@@ -4,10 +4,10 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import About from "./About/About";
-import Home from "./Home/Home";
-import List from "./List/List";
-import Layout from "./Page/Layout";
+import About from './About/About';
+import Home from './Home/Home';
+import List from './List/List';
+import Layout from './Page/Layout';
 
 export default function App() {
   return (
