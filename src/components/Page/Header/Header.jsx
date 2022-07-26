@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
 import styles from './Header.css';
+import Menu from './Menu';
 import Navigation from './Navigation';
 
 export default function Header() {
   return (
     <header className={styles.Header}>
       <div className={styles.MenuContainer}>
-        <button>test</button>
+        <Menu />
       </div>
 
       <h1>My App</h1>
