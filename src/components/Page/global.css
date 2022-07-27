@@ -22,4 +22,15 @@
     --background-color: #FEFCFB;
     --black-color: #252627;
     --white-color: #FEFCFB;
+    /* body padding */
+    --padding: 20px;
+    @media (min-width: 750px) {
+      --padding: 40px;
+    }
+
+    /* body margin */
+    --margin: 20px;
+    @media (min-width: 750px) {
+      --margin: 40px;
+    }
   }
