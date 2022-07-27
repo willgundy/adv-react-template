@@ -1,6 +1,7 @@
 import styles from './Header.css';
 import Menu from './Menu';
 import Navigation from './Navigation';
+import User from './User';
 
 export default function Header() {
   return (
@@ -15,7 +16,7 @@ export default function Header() {
         <Navigation />
       </div>
 
-      <div>User</div>
+      <User username={'Will'}/>
     </header>
   );
 }

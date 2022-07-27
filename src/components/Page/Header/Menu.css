@@ -4,6 +4,7 @@
     width: 7vh;
     background: #252627;
     color: #FFFFFA;
+    cursor: pointer;
   
     &::before {
       content: '☰';

@@ -6,7 +6,7 @@
     height: 7vh;
   
     display: grid;
-    grid-template-columns: max-content 1fr 50px;
+    grid-template-columns: max-content 1fr max-content;
     gap: 20px;
     align-items: center;
 
