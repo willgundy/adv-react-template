@@ -10,13 +10,12 @@
   
     a {
       padding: 3px 7px;
-      color: #FFFFFA;
+      color: var(--white-color);
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 0.8em;
 
       &:hover {
-        font-size: 1em;
+        font-size: 1.2em;
       }
     }
   }
