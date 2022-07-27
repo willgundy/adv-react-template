@@ -5,6 +5,7 @@ export default function Navigation() {
   return (
     <nav className={styles.Navigation}>
       <Link to="/">Home</Link>
+      <Link to="form">Form</Link>
       <Link to="list">List</Link>
       <Link to="about">About</Link>
     </nav>

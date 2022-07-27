@@ -4,9 +4,10 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import About from './About/About';
-import Home from './Home/Home';
-import List from './List/List';
+import About from './Page/Body/About/About.jsx';
+import Form from './Page/Body/Form/Form.jsx';
+import Home from './Page/Body/Home/Home.jsx';
+import List from './Page/Body/List/List.jsx';
 import Layout from './Page/Layout';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="list" element={<List />} />
           <Route path="about" element={<About />} />
+          <Route path="form" element={<Form />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
