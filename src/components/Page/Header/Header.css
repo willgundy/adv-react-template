@@ -1,8 +1,8 @@
 .Header {
     position: sticky;
     top: 0;
-    background: #252627;
-    color: #FFFFFA;
+    background: var(--primary-color);
+    color: var(--white-color);
     height: 10vh;
   
     display: grid;
@@ -10,6 +10,12 @@
     gap: 40px;
     font-size: 1.1em;
     align-items: center;
+
+    h1 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 0;
+    }
 
     .NavigationContainer {
         display: none;

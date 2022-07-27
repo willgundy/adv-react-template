@@ -10,7 +10,7 @@ export default function Header() {
         <Menu />
       </div>
 
-      <h1>My App</h1>
+      <h1>My React App</h1>
 
       <div className={styles.NavigationContainer}>
         <Navigation />

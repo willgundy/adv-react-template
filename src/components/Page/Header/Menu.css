@@ -2,8 +2,8 @@
     position: relative;
     height: 7vh;
     width: 7vh;
-    background: #252627;
-    color: #FFFFFA;
+    background: var(--primary-color);
+    color: var(--white-color);
     cursor: pointer;
   
     &::before {
@@ -24,9 +24,9 @@
       position: absolute;
       top: 120%;
       height: 90vh; /*100 viewport minus 7vh from header */
-      width: 20vw;
+      min-width: 20vw;
       padding: 20px 10px;
-      background: #636669;
+      background: var(--primary-color-light);
       transform: translateX(-100%);
       transition: transform 200ms ease-in;
     }
