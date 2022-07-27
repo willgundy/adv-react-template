@@ -22,8 +22,8 @@
   
     .MenuContainer {
       position: absolute;
-      top: 100%;
-      height: 93vh; /*100 viewport minus 7vh from header */
+      top: 120%;
+      height: 90vh; /*100 viewport minus 7vh from header */
       width: 20vw;
       padding: 20px 10px;
       background: #636669;

@@ -3,11 +3,12 @@
     top: 0;
     background: #252627;
     color: #FFFFFA;
-    height: 7vh;
+    height: 10vh;
   
     display: grid;
     grid-template-columns: max-content 1fr max-content;
-    gap: 20px;
+    gap: 40px;
+    font-size: 1.1em;
     align-items: center;
 
     .NavigationContainer {
