@@ -1,10 +1,11 @@
 import styles from './FormControls.css';
+import { Children, cloneElement } from 'react';
 
 function FormControl({ label, children }) {
   return (
     <label className={styles.FormControl}>
+      <Label text={label} className={styles.Label} />
       {children}
-      <Label text={label} />
     </label>
   );
 }
@@ -17,10 +18,7 @@ export function CheckboxControl({ label, text, ...rest }) {
   return (
     <div className={styles.FormControl}>
       <Label text={label} />
-      <label className={styles.CheckboxLabel}>
-        <input type="checkbox" {...rest} />
-        {text}
-      </label>
+      <CheckboxOption text={text} {...rest} />
     </div>
   );
 }
@@ -47,4 +45,49 @@ export function TextAreaControl({ label, ...rest }) {
       <textarea {...rest}></textarea>
     </FormControl>
   );
+}
+
+export function OptionGroupControl({
+  label,
+  name,
+  size = '100px',
+  children,
+}) {
+  return (
+    <div className={styles.FormControl}>
+      <fieldset>
+        <Label text={label} as="legend" />
+        <div
+          className={styles.Options}
+          style={{
+            gridTemplateColumns: `repeat(
+            auto-fill,
+            minmax(${size}, 1fr)
+          )`,
+          }}
+        >
+          {Children.map(children, (child) =>
+            cloneElement(child, { name })
+          )}
+        </div>
+      </fieldset>
+    </div>
+  );
+}
+
+function Option({ text, type, ...rest }) {
+  return (
+    <label className={styles.CheckboxLabel}>
+      <input type={type} {...rest} />
+      {text}
+    </label>
+  );
+}
+
+export function CheckboxOption(props) {
+  return <Option type="checkbox" className={styles.CheckboxOption} {...props} />;
+}
+
+export function RadioOption(props) {
+  return <Option type="radio" className={styles.RadioOption} {...props} />;
 }
