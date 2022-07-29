@@ -10,3 +10,13 @@ export async function getPokedex(searchParams) {
     };
 }
 
+export async function getPokemonTypes() {
+    const res = await fetch(`${API_URL}/types`);
+    const body = await res.json();
+
+    return {
+        data: res.ok ? body : null,
+        error: res.ok ? null : body,
+    };
+}
+
