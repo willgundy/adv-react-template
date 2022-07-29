@@ -1,8 +1,3 @@
 .Form {
-    margin: var(--margin);
-    padding: var(--padding);
-    form {
-        padding: 30px 40px;
-        width: 400px;
-      }
+
 }

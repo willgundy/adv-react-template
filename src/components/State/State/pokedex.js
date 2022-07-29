@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
 import { getPokedex } from '../Services/pokedex-service';
 
-export default function pokedex() {
+export default function pokedex(searchParams) {
     const [error, setError] = useState(null);
     const [data, setData] = useState(null);
     const [count, setCount] = useState(0);
 
     const fetchPokedex = async () => {
-        const res = await getPokedex();
-
-        console.log(res.data.results);
+        const res = await getPokedex(searchParams);
 
         if (res.data) {
             setData(res.data.results);
@@ -24,7 +22,7 @@ export default function pokedex() {
 
     useEffect(() => {
         fetchPokedex();
-    }, []);
+    }, [searchParams]);
 
     return { error, data, count };
 }

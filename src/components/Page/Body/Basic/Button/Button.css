@@ -2,7 +2,7 @@
     background: var(--highlight-color);
     padding: 10px;
     border-radius: 10px;
-    margin: 10px 0px;
+    margin: 20px 0px 10px 0px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     width: 100%;
     color: var(--white-color);
