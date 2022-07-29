@@ -9,6 +9,8 @@ export default function pokedex() {
     const fetchPokedex = async () => {
         const res = await getPokedex();
 
+        console.log(res.data.results);
+
         if (res.data) {
             setData(res.data.results);
             setCount(res.data.count);

@@ -2,92 +2,92 @@ import styles from './FormControls.css';
 import { Children, cloneElement } from 'react';
 
 function FormControl({ label, children }) {
-  return (
-    <label className={styles.FormControl}>
-      <Label text={label} className={styles.Label} />
-      {children}
-    </label>
-  );
+    return (
+        <label className={styles.FormControl}>
+            <Label text={label} className={styles.Label} />
+            {children}
+        </label>
+    );
 }
 
 function Label({ text }) {
-  return <span className="label-text">{text}</span>;
+    return <span className="label-text">{text}</span>;
 }
 
 export function CheckboxControl({ label, text, ...rest }) {
-  return (
-    <div className={styles.FormControl}>
-      <Label text={label} />
-      <CheckboxOption text={text} {...rest} />
-    </div>
-  );
+    return (
+        <div className={styles.FormControl}>
+            <Label text={label} />
+            <CheckboxOption text={text} {...rest} />
+        </div>
+    );
 }
 
 export function InputControl({ label, ...rest }) {
-  return (
-    <FormControl label={label}>
-      <input {...rest} />
-    </FormControl>
-  );
+    return (
+        <FormControl label={label}>
+            <input {...rest} />
+        </FormControl>
+    );
 }
 
 export function SelectControl({ label, children, ...rest }) {
-  return (
-    <FormControl label={label}>
-      <select {...rest}>{children}</select>
-    </FormControl>
-  );
+    return (
+        <FormControl label={label}>
+            <select {...rest}>{children}</select>
+        </FormControl>
+    );
 }
 
 export function TextAreaControl({ label, ...rest }) {
-  return (
-    <FormControl label={label}>
-      <textarea {...rest}></textarea>
-    </FormControl>
-  );
+    return (
+        <FormControl label={label}>
+            <textarea {...rest}></textarea>
+        </FormControl>
+    );
 }
 
 export function OptionGroupControl({
-  label,
-  name,
-  size = '100px',
-  children,
+    label,
+    name,
+    size = '100px',
+    children,
 }) {
-  return (
-    <div className={styles.FormControl}>
-      <fieldset>
-        <Label text={label} as="legend" />
-        <div
-          className={styles.Options}
-          style={{
-            gridTemplateColumns: `repeat(
+    return (
+        <div className={styles.FormControl}>
+            <fieldset>
+                <Label text={label} as="legend" />
+                <div
+                    className={styles.Options}
+                    style={{
+                        gridTemplateColumns: `repeat(
             auto-fill,
             minmax(${size}, 1fr)
           )`,
-          }}
-        >
-          {Children.map(children, (child) =>
-            cloneElement(child, { name })
-          )}
+                    }}
+                >
+                    {Children.map(children, (child) =>
+                        cloneElement(child, { name })
+                    )}
+                </div>
+            </fieldset>
         </div>
-      </fieldset>
-    </div>
-  );
+    );
 }
 
 function Option({ text, type, ...rest }) {
-  return (
-    <label className={styles.CheckboxLabel}>
-      <input type={type} {...rest} />
-      {text}
-    </label>
-  );
+    return (
+        <label className={styles.CheckboxLabel}>
+            <input type={type} {...rest} />
+            {text}
+        </label>
+    );
 }
 
 export function CheckboxOption(props) {
-  return <Option type="checkbox" className={styles.CheckboxOption} {...props} />;
+    return <Option type="checkbox" className={styles.CheckboxOption} {...props} />;
 }
 
 export function RadioOption(props) {
-  return <Option type="radio" className={styles.RadioOption} {...props} />;
+    return <Option type="radio" className={styles.RadioOption} {...props} />;
 }
