@@ -6,12 +6,12 @@ import './reset.css';
 
 
 export default function Layout() {
-  return (
-    <div className={styles.Layout}>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  );
+    return (
+        <div className={styles.Layout}>
+            <Header />
+            <main>
+                <Outlet />
+            </main>
+        </div>
+    );
 }
