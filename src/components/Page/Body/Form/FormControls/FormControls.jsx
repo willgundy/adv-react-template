@@ -23,18 +23,18 @@ export function CheckboxControl({ label, text, ...rest }) {
     );
 }
 
-export function InputControl({ label, ...rest }) {
+export function InputControl({ label, value, ...rest }) {
     return (
         <FormControl label={label}>
-            <input {...rest} />
+            <input defaultValue={value || ''} {...rest} />
         </FormControl>
     );
 }
 
-export function SelectControl({ label, children, ...rest }) {
+export function SelectControl({ label, children, value, ...rest }) {
     return (
         <FormControl label={label}>
-            <select {...rest}>{children}</select>
+            <select defaultValue={value || ''} {...rest}>{children}</select>
         </FormControl>
     );
 }
