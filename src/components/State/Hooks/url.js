@@ -19,8 +19,9 @@ export function useSearch() {
 
 export function removeEmptyKeys(obj) {
     const filtered = Object.entries(obj).filter(
-        ([, value]) =>
+        ([value]) =>
             value !== undefined && value !== null && value !== ''
     );
     return Object.fromEntries(filtered);
-};
+}
+

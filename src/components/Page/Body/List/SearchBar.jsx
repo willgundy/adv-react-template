@@ -7,13 +7,13 @@ import { useSearchParams } from 'react-router-dom';
 export default function SearchBar() {
     const [searchParams, setSearchParams] = useSearchParams();
     const pokemon = searchParams.get('pokemon') || '';
-    const type = searchParams.get('type') || '';
+    // const type = searchParams.get('type') || '';
   
-    const [search, setSearch] = useState({ pokemon, type });
+    const [search, setSearch] = useState({ pokemon });
   
     useEffect(() => {
-        setSearch({ pokemon, type });
-    }, [pokemon, type]);
+        setSearch({ pokemon });
+    }, [pokemon]);
   
     const handleSubmit = (e) => {
         e.preventDefault();

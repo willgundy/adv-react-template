@@ -5,8 +5,8 @@ import PokemonList from './PokemonList';
 import SearchBar from './SearchBar';
 
 export default function List() {
-    const [serachParams] = useSearchParams();
-    const { data } = pokedex(serachParams);
+    const [searchParams] = useSearchParams();
+    const { data } = pokedex(searchParams);
 
     if (!data) return null;
 
