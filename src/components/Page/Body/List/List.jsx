@@ -1,10 +1,12 @@
-import pokedex from '../../../State/State/pokedex';
+import { useSearchParams } from 'react-router-dom';
+import { pokedex } from '../../../State/Hooks/pokedex';
 import Section from '../Basic/Section/Section';
 import PokemonList from './PokemonList';
 import SearchBar from './SearchBar';
 
 export default function List() {
-    const { data } = pokedex();
+    const [serachParams] = useSearchParams();
+    const { data } = pokedex(serachParams);
 
     if (!data) return null;
 
