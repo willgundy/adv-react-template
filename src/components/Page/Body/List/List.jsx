@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 
 export default function List() {
     const [searchParams] = useSearchParams();
-    const { data } = pokedex(searchParams);
+    const { data, addPage } = pokedex(searchParams);
 
     if (!data) return null;
 
@@ -20,7 +20,7 @@ export default function List() {
             </Section>
             <Section  
                 maxWidth="90%" >
-                <PokemonList pokemon={data}/>
+                <PokemonList pokemon={data} onLoadNext={addPage}/>
             </Section>
         </>
     );

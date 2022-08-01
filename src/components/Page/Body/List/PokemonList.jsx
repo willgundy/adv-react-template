@@ -1,13 +1,25 @@
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import Card from '../Basic/Card/Card';
 import styles from './List.css';
 
-export default function PokemonList({ pokemon }) {
+export default function PokemonList({ pokemon, onLoadNext }) {
+    const { ref, inView } = useInView();
+
+    useEffect(() => {
+        if (!inView) return;
+        onLoadNext();
+    }, [inView]);
+
     return (
         <div className={styles.List}>
-            {pokemon.map((pokemon) => (
-                <Card key={pokemon._id} image={pokemon.url_image} header={pokemon.pokemon}>
-                    {pokemon.type_1 !== 'NA' && <span>{pokemon.type_1}</span>}
-                    {pokemon.type_2 !== 'NA' && <span>{pokemon.type_2}</span>}
+            {pokemon.map((poke, i) => (
+                <Card key={i} 
+                    image={poke.url_image} 
+                    header={poke.pokemon}
+                    loadRef={i === pokemon.length - 2 ? ref : null}>
+                    {poke.type_1 !== 'NA' && <span>{poke.type_1}</span>}
+                    {poke.type_2 !== 'NA' && <span>{poke.type_2}</span>}
                 </Card>
             ))}
         </div>
