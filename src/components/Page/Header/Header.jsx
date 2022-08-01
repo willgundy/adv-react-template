@@ -3,6 +3,14 @@ import Menu from './Menu';
 import Navigation from './Navigation';
 import User from './User';
 
+const nav = [
+    { to: '/', label: 'Home' },
+    { to: 'list', label: 'List' },
+    { to: 'fuzzy-bunny', label: 'Fuzzy Bunny' },
+    { to: 'about', label: 'About' },
+    { to: 'form', label: 'Form' },
+];
+
 export default function Header() {
     return (
         <header className={styles.Header}>
@@ -13,7 +21,7 @@ export default function Header() {
             <h1>My React App</h1>
 
             <div className={styles.NavigationContainer}>
-                <Navigation />
+                <Navigation navigation={nav} />
             </div>
 
             <User username={'Will'}/>

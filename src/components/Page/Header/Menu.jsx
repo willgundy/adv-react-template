@@ -14,10 +14,18 @@ export default function Menu() {
         setIsOpen((isOpen) => !isOpen);
     };
 
+    const nav = [
+        { to: '/', label: 'Home' },
+        { to: 'list', label: 'List' },
+        { to: 'fuzzy-bunny', label: 'Fuzzy Bunny' },
+        { to: 'about', label: 'About' },
+        { to: 'form', label: 'Form' },
+    ];
+
     return (
         <button className={className} onClick={handleClick}>
             <div className={styles.MenuContainer}>
-                <Navigation />
+                <Navigation navigation={nav}/>
             </div>
         </button>
     );
