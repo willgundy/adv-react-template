@@ -1,5 +1,5 @@
 import { useTeams } from '../../../State/Hooks/team';
-import Card from '../Basic/Card/Card';
+import TeamCard from './TeamCard';
 import styles from './TeamList.css';
 
 export default function TeamList() {
@@ -12,15 +12,7 @@ export default function TeamList() {
     return (
         <ul className={styles.TeamList}>
             {teams.map(team => (
-                <Card header={team.fullName} value={team.teamId} key={team.teamId} backgroundColor={team.primary} textColor={team.secondary}>
-                    {/* {team.players.map((player, i) => (
-                        <span key={i} className={styles.PlayerPill}>
-                            <p>{`#${player.jersey}`}</p>
-                            <p>{`${player.firstName} ${player.lastName}`}</p>
-                            <p>{player.pos}</p> 
-                        </span>
-                    ))} */}
-                </Card>
+                <TeamCard team={team} key={team.id} />
             ))}
         </ul>
     );
