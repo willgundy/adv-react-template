@@ -2,15 +2,6 @@ import { createContext, useReducer } from 'react';
 
 export const TeamContext = createContext();
 
-export default function TeamContextProvider({ children }) {
-    const [teams, dispatch] = useReducer(reducer, null);
-    return (
-        <TeamContext.Provider value={{ teams, dispatch }}>
-            {children}
-        </TeamContext.Provider>
-    );
-}
-
 function reducer(teams, { type, payload }) {
     switch (type) {
         case 'load':
@@ -24,4 +15,13 @@ function reducer(teams, { type, payload }) {
         default:
             throw Error(`Unknown action: ${type}`);
     }
+}
+
+export default function TeamContextProvider({ children }) {
+    const [teams, dispatch] = useReducer(reducer, null);
+    return (
+        <TeamContext.Provider value={{ teams, dispatch }}>
+            {children}
+        </TeamContext.Provider>
+    );
 }

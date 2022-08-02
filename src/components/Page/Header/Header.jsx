@@ -6,7 +6,7 @@ import User from './User';
 const nav = [
     { to: '/', label: 'Home' },
     { to: 'list', label: 'List' },
-    { to: 'fuzzy-bunny', label: 'Fuzzy Bunny' },
+    { to: 'nba', label: 'NBA' },
     { to: 'about', label: 'About' },
     { to: 'form', label: 'Form' },
 ];

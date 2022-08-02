@@ -1,18 +1,19 @@
 import { Outlet } from 'react-router-dom';
 import Navigation from '../../Header/Navigation';
-import styles from './FuzzyBunny.css';
+import Section from '../Basic/Section/Section';
+import styles from './NBA.css';
 
 const navigation = [
-    { to: '', label: 'Families' }
+    { to: '', label: 'Teams' }
 ];
 
-export default function FuzzyBunny() {
+export default function NBA() {
     return (
-        <section className={styles.FuzzyBunny}>
+        <Section className={styles.NBA}>
             <header>
                 <Navigation navigation={navigation} />
             </header>
-            <Outlet>Default content</Outlet>
-        </section>
+            <Outlet></Outlet>
+        </Section>
     );
 }
