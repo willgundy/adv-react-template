@@ -12,10 +12,12 @@ import Layout from './Page/Layout';
 import Teams from './Page/Body/Team/Teams.jsx';
 import NBA from './Page/Body/Team/NBA.jsx';
 import TeamContextProvider from './State/Context/TeamContext.jsx';
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
     return (
         <Router>
+            <Toaster />
             <TeamContextProvider>
                 <Routes>
                     <Route path="/" element={<Layout />}>
@@ -30,7 +32,6 @@ export default function App() {
                     </Route>
                 </Routes>
             </TeamContextProvider>
-
         </Router>
     );
 }
