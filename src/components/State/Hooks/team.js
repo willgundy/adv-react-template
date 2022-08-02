@@ -58,7 +58,7 @@ export function useActions() {
             //to add in toasts later
         }
         if (data) {
-            dispatch({ type: 'remove', payload: data });
+            dispatch({ type: 'update', payload: data });
             //to add in toasts later
         }
     };
