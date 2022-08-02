@@ -41,7 +41,7 @@ export async function addTeam(team) {
     return response;
 }
 
-export async function updateFamily(team) {
+export async function updateTeam(team) {
     const response = await client
         .from('nbaTeam')
         .update(team)
