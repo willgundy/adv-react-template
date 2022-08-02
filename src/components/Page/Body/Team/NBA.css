@@ -4,9 +4,13 @@
   
     display: grid;
     gap: var(--padding-half);
-  
-    header {
-      background: var(--color-2);
-      padding: 5px 0;
-    }
+
   }
+
+.Header {
+  background: var(--complimentary-color);
+  color: var(--primary-color);
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 10px;
+}

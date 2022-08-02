@@ -13,13 +13,13 @@ export default function TeamList() {
         <ul className={styles.TeamList}>
             {teams.map(team => (
                 <Card header={team.fullName} value={team.teamId} key={team.teamId} backgroundColor={team.primary} textColor={team.secondary}>
-                    {team.players.map((player, i) => (
+                    {/* {team.players.map((player, i) => (
                         <span key={i} className={styles.PlayerPill}>
                             <p>{`#${player.jersey}`}</p>
                             <p>{`${player.firstName} ${player.lastName}`}</p>
                             <p>{player.pos}</p> 
                         </span>
-                    ))}
+                    ))} */}
                 </Card>
             ))}
         </ul>

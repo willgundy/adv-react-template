@@ -24,8 +24,6 @@ export function useTeams() {
         fetchTeams();
     }, []);
 
-    console.log(teams);
-
     return { error, teams };
 }
 

@@ -11,6 +11,7 @@ export async function getTeamsWithPlayers() {
     primary,
     secondary,
     players:nbaPlayers(
+        personId,
         firstName,
         lastName,
         teamId,
@@ -45,7 +46,7 @@ export async function updateTeam(team) {
     const response = await client
         .from('nbaTeam')
         .update(team)
-        .eq('teamId', team.id)
+        .eq('teamId', team.teamId)
         .single();
 
     return response;

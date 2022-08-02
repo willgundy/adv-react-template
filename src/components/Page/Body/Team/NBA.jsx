@@ -10,7 +10,7 @@ const navigation = [
 export default function NBA() {
     return (
         <Section className={styles.NBA}>
-            <header>
+            <header className={styles.Header}>
                 <Navigation navigation={navigation} />
             </header>
             <Outlet></Outlet>
