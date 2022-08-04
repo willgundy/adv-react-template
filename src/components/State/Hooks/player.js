@@ -1,19 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
-import { TeamContext } from '../Context/TeamContext';
-import { addTeam, getTeamsWithPlayers, removeTeam, updateTeam } from '../Services/Team-service';
+import { PlayerContext } from '../Context/PlayerContext';
+import { addPlayer, getAllPlayers, removePlayer, updatePlayer } from '../Services/Player-service';
 import { showError, showSuccess } from '../Services/toaster';
 
-export function useTeams() {
+export function usePlayers() {
     const [error, setError] = useState(null);
     //need to come back after adding team context
-    const { teams, dispatch } = useContext(TeamContext);
+    const { players, dispatch } = useContext(PlayerContext);
 
     useEffect(() => {
-        if (teams) return;
+        if (players) return;
         //figure out ignore use case
 
-        const fetchTeams = async () => {
-            const { data, error } = await getTeamsWithPlayers();
+        const fetchPlayers = async () => {
+            const { data, error } = await getAllPlayers();
             if (error) {
                 setError(error);
             }
@@ -22,45 +22,45 @@ export function useTeams() {
             }
         };
 
-        fetchTeams();
+        fetchPlayers();
     }, []);
 
-    return { error, teams };
+    return { error, players };
 }
 
 export function useActions() {
-    const { dispatch } = useContext(TeamContext);
+    const { dispatch } = useContext(PlayerContext);
 
-    const add = async (team) => {
-        const { data, error } = await addTeam(team);
+    const add = async (player) => {
+        const { data, error } = await addPlayer(player);
         if (error) {
             showError(error.message);
         }
         if (data) {
             dispatch({ type: 'add', payload: data });
-            showSuccess(`Added ${data.fullName} successfully`);
+            showSuccess(`Added ${data.firstName} ${data.lastName} successfully`);
         }
     };
 
     const remove = async (id) => {
-        const { data, error } = await removeTeam(id);
+        const { data, error } = await removePlayer(id);
         if (error) {
             showError(error.message);
         }
         if (data) {
             dispatch({ type: 'remove', payload: data });
-            showSuccess(`Removed ${data.fullName} successfully`);
+            showSuccess(`Removed ${data.firstName} ${data.lastName} successfully`);
         }
     };
 
-    const update = async (team) => {
-        const { data, error } = await updateTeam(team);
+    const update = async (player) => {
+        const { data, error } = await updatePlayer(player);
         if (error) {
             showError(error.message);
         }
         if (data) {
             dispatch({ type: 'update', payload: data });
-            showSuccess(`Updated ${data.fullName} successfully`);
+            showSuccess(`Updated ${data.firstName} ${data.lastName} successfully`);
         }
     };
 

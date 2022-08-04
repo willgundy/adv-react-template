@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useActions } from '../../../State/Hooks/team';
 import { InputControl } from '../Form/FormControls/FormControls';
+import PlayerPill from './PlayerPill';
 import styles from './TeamCard.css';
 
 export default function TeamCard({ team }) {
@@ -31,28 +32,27 @@ export default function TeamCard({ team }) {
     return (
         <div className={styles.TeamCard} 
             style={{ backgroundColor: team.primary, color: team.secondary }}>
-            
-            {editing ? (
-                <InputControl
-                    name="name"
-                    value={name}
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                    onBlur={handleEdit}
-                />
-            ) : (
-                <h2 onDoubleClick={handleDoubleClick}>{team.fullName}</h2>
-            )}
-            {team.teamId < 1000000 && <button onClick={handleRemove}>❌</button>}
+            {/* only want to allow user created teams to be deleted */}
+            <div>
+                {team.teamId < 1000000 && <button onClick={handleRemove}>ⓧ</button>}
+                {editing ? (
+                    <InputControl
+                        name="name"
+                        value={name}
+                        onChange={handleChange}
+                        onKeyDown={handleKeyDown}
+                        onBlur={handleEdit}
+                    />
+                ) : (
+                    <h2 onDoubleClick={handleDoubleClick}>{team.fullName}</h2>
+                )}
+            </div>
+            <div className={styles.PlayerContainer}>
+                {team.players && team.players.map((player, i) => (
+                    <PlayerPill player={player} key={i} />
+                ))}
+            </div>
         </div>
     );
 }
-
-{/* {team.players.map((player, i) => (
-    <span key={i} className={styles.PlayerPill}>
-        <p>{`#${player.jersey}`}</p>
-        <p>{`${player.firstName} ${player.lastName}`}</p>
-        <p>{player.pos}</p> 
-    </span>
-))} */}
 
