@@ -11,14 +11,14 @@ import List from './Page/Body/List/List.jsx';
 import Layout from './Page/Layout';
 import Teams from './Page/Body/Team/Teams.jsx';
 import NBA from './Page/Body/Team/NBA.jsx';
-import TeamContextProvider from './State/Context/TeamContext.jsx';
+import NBAContextProvider from './State/Context/NBAContext.jsx';
 import { Toaster } from 'react-hot-toast';
 
 export default function App() {
     return (
         <Router>
             <Toaster />
-            <TeamContextProvider>
+            <NBAContextProvider>
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Home />} />
@@ -31,7 +31,7 @@ export default function App() {
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Route>
                 </Routes>
-            </TeamContextProvider>
+            </NBAContextProvider>
         </Router>
     );
 }

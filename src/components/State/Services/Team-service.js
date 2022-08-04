@@ -2,7 +2,7 @@ import { client } from './client.js';
 
 export async function getTeamsWithPlayers() {
     const response = await client.from('nbaTeam').select(`
-    teamId,
+    id,
     city,
     fullName,
     confName,
@@ -11,7 +11,7 @@ export async function getTeamsWithPlayers() {
     primary,
     secondary,
     players:nbaPlayers(
-        personId,
+        id,
         firstName,
         lastName,
         teamId,
@@ -27,7 +27,7 @@ export async function removeTeam(id) {
     const response = await client
         .from('nbaTeam')
         .delete()
-        .eq('teamId', id)
+        .eq('id', id)
         .single();
 
     return response;
@@ -46,7 +46,7 @@ export async function updateTeam(team) {
     const response = await client
         .from('nbaTeam')
         .update(team)
-        .eq('teamId', team.teamId)
+        .eq('id', team.id)
         .single();
 
     return response;

@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { TeamContext } from '../Context/TeamContext';
-import { addTeam, getTeamsWithPlayers, removeTeam, updateTeam } from '../Services/Team-service';
+import { NBAContext, NBADispatchContext } from '../Context/NBAContext';
+import { addTeam, getTeamsWithPlayers, removeTeam, updateTeam } from '../Services/team-service';
 import { showError, showSuccess } from '../Services/toaster';
 
 export function useTeams() {
     const [error, setError] = useState(null);
-    //need to come back after adding team context
-    const { teams, dispatch } = useContext(TeamContext);
+    const { teams } = useContext(NBAContext);
+    const { teamsDispatch } = useContext(NBADispatchContext);
 
     useEffect(() => {
         if (teams) return;
@@ -18,7 +18,7 @@ export function useTeams() {
                 setError(error);
             }
             if (data) {
-                dispatch({ type: 'load', payload: data });
+                teamsDispatch({ type: 'load', payload: data });
             }
         };
 
@@ -29,7 +29,7 @@ export function useTeams() {
 }
 
 export function useActions() {
-    const { dispatch } = useContext(TeamContext);
+    const { teamsDispatch } = useContext(NBADispatchContext);
 
     const add = async (team) => {
         const { data, error } = await addTeam(team);
@@ -37,7 +37,7 @@ export function useActions() {
             showError(error.message);
         }
         if (data) {
-            dispatch({ type: 'add', payload: data });
+            teamsDispatch({ type: 'add', payload: data });
             showSuccess(`Added ${data.fullName} successfully`);
         }
     };
@@ -48,7 +48,7 @@ export function useActions() {
             showError(error.message);
         }
         if (data) {
-            dispatch({ type: 'remove', payload: data });
+            teamsDispatch({ type: 'remove', payload: data });
             showSuccess(`Removed ${data.fullName} successfully`);
         }
     };
@@ -59,7 +59,7 @@ export function useActions() {
             showError(error.message);
         }
         if (data) {
-            dispatch({ type: 'update', payload: data });
+            teamsDispatch({ type: 'update', payload: data });
             showSuccess(`Updated ${data.fullName} successfully`);
         }
     };

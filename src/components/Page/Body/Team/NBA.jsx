@@ -9,12 +9,15 @@ const navigation = [
 
 export default function NBA() {
     return (
-        <Section className={styles.NBA}>
-            <p>Double click on name to edit. Can only delete created teams because of a dependency, working on fixing.</p>
-            <header className={styles.Header}>
+        <>
+            <header className={styles.subHeader}>
                 <Navigation navigation={navigation} />
             </header>
-            <Outlet></Outlet>
-        </Section>
+            <Section className={styles.NBA}>
+                <p>Double click on name to edit. Can only delete created teams because of a dependency, working on fixing.</p>
+                <Outlet></Outlet>
+            </Section>
+        </>
+
     );
 }

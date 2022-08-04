@@ -1,44 +1,44 @@
 import { useContext, useEffect, useState } from 'react';
-import { PlayerContext } from '../Context/PlayerContext';
+import { NBAContext, NBADispatchContext } from '../Context/NBAContext';
 import { addPlayer, getAllPlayers, removePlayer, updatePlayer } from '../Services/Player-service';
 import { showError, showSuccess } from '../Services/toaster';
 
 export function usePlayers() {
     const [error, setError] = useState(null);
-    //need to come back after adding team context
-    const { players, dispatch } = useContext(PlayerContext);
+    const { players } = useContext(NBAContext);
+    const { playersDispatch } = useContext(NBADispatchContext);
 
     useEffect(() => {
         if (players) return;
         //figure out ignore use case
 
-        const fetchPlayers = async () => {
+        const fetchTeams = async () => {
             const { data, error } = await getAllPlayers();
             if (error) {
                 setError(error);
             }
             if (data) {
-                dispatch({ type: 'load', payload: data });
+                playersDispatch({ type: 'load', payload: data });
             }
         };
 
-        fetchPlayers();
+        fetchTeams();
     }, []);
 
     return { error, players };
 }
 
 export function useActions() {
-    const { dispatch } = useContext(PlayerContext);
+    const { playersDispatch } = useContext(NBADispatchContext);
 
-    const add = async (player) => {
-        const { data, error } = await addPlayer(player);
+    const add = async (team) => {
+        const { data, error } = await addPlayer(team);
         if (error) {
             showError(error.message);
         }
         if (data) {
-            dispatch({ type: 'add', payload: data });
-            showSuccess(`Added ${data.firstName} ${data.lastName} successfully`);
+            playersDispatch({ type: 'add', payload: data });
+            showSuccess(`Added ${data.fullName} successfully`);
         }
     };
 
@@ -48,8 +48,8 @@ export function useActions() {
             showError(error.message);
         }
         if (data) {
-            dispatch({ type: 'remove', payload: data });
-            showSuccess(`Removed ${data.firstName} ${data.lastName} successfully`);
+            playersDispatch({ type: 'remove', payload: data });
+            showSuccess(`Removed ${data.fullName} successfully`);
         }
     };
 
@@ -59,8 +59,8 @@ export function useActions() {
             showError(error.message);
         }
         if (data) {
-            dispatch({ type: 'update', payload: data });
-            showSuccess(`Updated ${data.firstName} ${data.lastName} successfully`);
+            playersDispatch({ type: 'update', payload: data });
+            showSuccess(`Updated ${data.fullName} successfully`);
         }
     };
 

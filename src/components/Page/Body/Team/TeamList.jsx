@@ -12,7 +12,7 @@ export default function TeamList() {
     return (
         <ul className={styles.TeamList}>
             {teams.map(team => (
-                <TeamCard team={team} key={team.teamId} />
+                <TeamCard team={team} key={team.id} />
             ))}
         </ul>
     );

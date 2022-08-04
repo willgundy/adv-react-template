@@ -12,7 +12,7 @@ export async function removePlayer(id) {
     const response = await client
         .from('nbaPlayers')
         .delete()
-        .eq('personId', id)
+        .eq('id', id)
         .single();
 
     return response;
@@ -31,7 +31,7 @@ export async function updatePlayer(player) {
     const response = await client
         .from('nbaPlayers')
         .update(player)
-        .eq('personId', player.personId)
+        .eq('id', player.id)
         .single();
 
     return response;
