@@ -18,11 +18,11 @@
     "testEnvironment": "jsdom"
   },
   "scripts": {
-    "test": "jest",
-    "test:watch": "npm run test -- --watch",
+    "test": "npm run lint",
     "lint": "eslint --ext js --ext jsx src",
-    "start": "webpack serve --hot --mode development --devtool eval-source-map",
-    "start:open": "npm run start -- --open",
+    "test:watch": "npm run lint -- --watch",
+    "start": "webpack serve --hot --mode development --devtool eval-source-map --open",
+    "start:watch": "npm run start",
     "build": "webpack --devtool source-map"
   },
   "keywords": [],
