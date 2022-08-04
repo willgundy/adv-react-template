@@ -13,7 +13,6 @@ import Teams from './Page/Body/Team/Teams.jsx';
 import NBA from './Page/Body/Team/NBA.jsx';
 import TeamContextProvider from './State/Context/TeamContext.jsx';
 import { Toaster } from 'react-hot-toast';
-import PlayerContextProvider from './State/Context/PlayerContext.jsx';
 
 export default function App() {
     return (
