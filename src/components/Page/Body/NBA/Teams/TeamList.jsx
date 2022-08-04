@@ -1,4 +1,4 @@
-import { useTeams } from '../../../State/Hooks/team';
+import { useTeams } from '../../../../State/Hooks/team';
 import TeamCard from './TeamCard';
 import styles from './TeamList.css';
 

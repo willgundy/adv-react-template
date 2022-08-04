@@ -9,8 +9,8 @@ import Form from './Page/Body/Form/Form.jsx';
 import Home from './Page/Body/Home/Home.jsx';
 import List from './Page/Body/List/List.jsx';
 import Layout from './Page/Layout';
-import Teams from './Page/Body/Team/Teams.jsx';
-import NBA from './Page/Body/Team/NBA.jsx';
+import Teams from './Page/Body/NBA/Teams/Teams.jsx';
+import NBA from './Page/Body/NBA/NBA.jsx';
 import NBAContextProvider from './State/Context/NBAContext.jsx';
 import { Toaster } from 'react-hot-toast';
 

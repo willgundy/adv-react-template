@@ -28,7 +28,7 @@ export function useTeams() {
     return { error, teams };
 }
 
-export function useActions() {
+export function useTeamActions() {
     const { teamsDispatch } = useContext(NBADispatchContext);
 
     const add = async (team) => {

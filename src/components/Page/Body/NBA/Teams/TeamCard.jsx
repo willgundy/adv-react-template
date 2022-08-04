@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useActions } from '../../../State/Hooks/team';
-import Button from '../Basic/Button/Button';
-import { InputControl, SelectControl } from '../Form/FormControls/FormControls';
+import { InputControl } from '../../Form/FormControls/FormControls';
 import PlayerPill from './PlayerPill';
 import styles from './TeamCard.css';
+import { useTeamActions } from '../../../../State/Hooks/team';
+import AddPlayer from './AddPlayer';
 
 export default function TeamCard({ team }) {
-    const { remove, update } = useActions();
+    const { remove, update } = useTeamActions();
     const [editing, setEditing] = useState(false);
     const [name, setName] = useState(team.fullName);
 
@@ -53,29 +53,7 @@ export default function TeamCard({ team }) {
                     <PlayerPill player={player} key={i} />
                 ))}
             </div>
-            <form className={styles.AddPlayer}>
-                <InputControl 
-                    type="number"
-                    placeholder={0}
-                    required/>
-                <InputControl 
-                    type="text"
-                    placeholder="First Name"
-                    required/>
-                <InputControl 
-                    type="text"
-                    placeholder="Last Name"
-                    required/>
-                <SelectControl>
-                    <option value="">Position</option>
-                    <option value="G">G</option>
-                    <option value="G-F">G-F</option>
-                    <option value="F">F</option>
-                    <option value="F-C">F-C</option>
-                    <option value="C">C</option>
-                </SelectControl>
-                <Button text="+"/>
-            </form>
+            <AddPlayer teamId={team.id}/>
         </div>
     );
 }

@@ -6,18 +6,18 @@ export default function PlayerPill({ player }) {
 
     const dragPill = useRef();
 
-    const handleDragStart = (e, player) => {
+    const handleDragStart = (e) => {
         setDragging(true);
         dragPill.current = e.target;
         dragPill.current.addEventListener('dragend', handleDragEnd);
-        console.log('drag start', player);
+        // console.log('drag start', player);
     };
 
-    const handleDragEnd = (e) => {
-        console.log('drag end');
+    const handleDragEnd = () => {
+        // console.log('drag end');
         setDragging(false);
         dragPill.current.removeEventListener('dragend', handleDragEnd);
-        dragPill.current = null;
+        dragPill.current = dragging;
     };
 
     return (
@@ -28,7 +28,6 @@ export default function PlayerPill({ player }) {
             <p>{`#${player.jersey}`}</p>
             <p className={styles.PlayerName}>{`${player.firstName} ${player.lastName}`}</p>
             <p>{player.pos}</p>
-            <span>✏️</span>
             <span>ⓧ</span>
         </span>
     );
