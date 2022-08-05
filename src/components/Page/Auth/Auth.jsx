@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import AuthForm from './AuthForm';
 import styles from './Auth.css';
-import { useAuthActions } from '../../State/Hooks/user';
+import { useAuthActions } from '../../../State/Hooks/user';
 
 export default function Auth() {
     const { signIn, signUp } = useAuthActions();
@@ -23,8 +23,8 @@ export default function Auth() {
     };
 
     return (
-        <section>
-            <Routes className={styles.Auth}>
+        <section className={styles.Auth}>
+            <Routes>
                 <Route index element={<AuthForm {...signInData} />} />
                 <Route path="sign-up" element={<AuthForm {...signUpData} />} />
             </Routes>

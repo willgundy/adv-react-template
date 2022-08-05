@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import styles from './PlayerPill.css';
-import { usePlayerActions } from '../../../../State/Hooks/player';
+import { usePlayerActions } from '../../../../../State/Hooks/player';
 
 export default function PlayerPill({ player }) {
     const [dragging, setDragging] = useState(false);

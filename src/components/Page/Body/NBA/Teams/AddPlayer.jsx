@@ -2,7 +2,7 @@ import { InputControl, SelectControl } from '../../Form/FormControls/FormControl
 import Button from '../../Basic/Button/Button';
 import styles from './AddPlayer.css';
 import { useState } from 'react';
-import { usePlayerActions } from '../../../../State/Hooks/player';
+import { usePlayerActions } from '../../../../../State/Hooks/player';
 
 export default function AddPlayer({ teamId }) {
     const [newPlayer, setNewPlayer] = useState({ teamId });

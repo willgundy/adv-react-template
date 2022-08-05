@@ -12,7 +12,7 @@ export default function UserProvider({ children }) {
     const loadProfile = async () => {
         const { data, error } = await getProfile();
         if (error) {
-            console.log(error);
+            setProfile(null);
         }
         if (data) {
             setProfile(data);
@@ -24,7 +24,6 @@ export default function UserProvider({ children }) {
         if (user) loadProfile();
 
         const { data } = onAuthChange((event) => {
-            console.log('auth change event');
             if (event == 'SIGNED_IN') loadProfile();
             if (event == 'SIGNED_OUT') {
                 setUser(null);

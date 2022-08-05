@@ -1,8 +1,13 @@
 .AuthForm {
     background: var(--offset-color);
-    padding: 30px 60px;
-    width: 500px;
+    width: 100%;
 
-    display: grid;
-    row-gap: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 20px;
+    .SubHeader {
+      margin: 10px 0px;
+    }
   }
+

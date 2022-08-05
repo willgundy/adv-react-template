@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { InputControl } from '../../Form/FormControls/FormControls';
 import PlayerPill from './PlayerPill';
 import styles from './TeamCard.css';
-import { useTeamActions } from '../../../../State/Hooks/team';
+import { useTeamActions } from '../../../../../State/Hooks/team';
 import AddPlayer from './AddPlayer';
 
 export default function TeamCard({ team }) {

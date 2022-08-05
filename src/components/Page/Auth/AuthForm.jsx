@@ -2,27 +2,28 @@ import styles from './AuthForm.css';
 import { Link } from 'react-router-dom';
 import Section from '../Body/Basic/Section/Section.jsx';
 import Button from '../Body/Basic/Button/Button.jsx';
-import { useForm } from '../../State/Hooks/formData.js';
 import { InputControl } from '../Body/Form/FormControls/FormControls';
+import { useState } from 'react';
 
 export default function AuthForm({ header, button, prompt, link, onSubmit }) {
-    const [credentials, handleChange] = useForm({ email: '', password: '' });
+    const [credentials, setCredentials] = useState({ email: '', password: '' });
 
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(credentials.email, credentials.password);
     };
 
+    const handleChange = (e) => setCredentials({ ...credentials, [e.target.name]: e.target.value });
+
     return (
-        <Section className={styles.AuthForm} header={header}>
-            <form onSubmit={handleSubmit}>
+        <Section header={header} width="40vw">
+            <form onSubmit={handleSubmit} className={styles.AuthForm}>
                 <InputControl
                     label="Email"
                     name="email"
                     type="email"
                     required
                     placeholder="email"
-                    value={credentials.email}
                     onChange={handleChange}
                 />
                 <InputControl
@@ -31,13 +32,12 @@ export default function AuthForm({ header, button, prompt, link, onSubmit }) {
                     type="password"
                     required
                     placeholder="password"
-                    value={credentials.password}
                     onChange={handleChange}
                 />
 
                 <Button text={button} marginTop={'20px'}/>
 
-                <Link to={link}>{prompt}</Link>
+                <Link to={link} className={styles.SubHeader}>{prompt}</Link>
             </form>
         </Section>
     );

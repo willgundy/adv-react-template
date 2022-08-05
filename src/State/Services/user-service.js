@@ -21,7 +21,7 @@ export function onAuthChange(handleAuthChange) {
 }
 
 const PROFILE = 'profile';
-export async function getLocalProfile() {
+export function getLocalProfile() {
     const json = localStorage.getItem(PROFILE);
     if (!json) return null;
     try {
@@ -44,6 +44,7 @@ export async function getProfile() {
         .eq('id', user.id)
         .single();
 
+    saveLocalProfile(response.data);
     return response;
 }
 
@@ -62,4 +63,35 @@ export function removeLocalProfile() {
     localStorage.removeItem(PROFILE);
 }
 
+export async function upsertProfile(profile) {
+    const response = await client
+        .from('profiles')
+        .upsert(profile)
+        .eq('id', profile.id)
+        .single();
+    return response;
+}
+  
+const BUCKET_NAME = 'profile-avatars';
+  
+export async function uploadAvatar(userId, imageFile) {
+    const imageName = `${userId}/${imageFile.name}`;
+  
+    const bucket = client.storage.from(BUCKET_NAME);
+  
+    const { data, error } = await bucket.upload(imageName, imageFile, {
+        cacheControl: '3600',
+        upsert: true,
+    });
+  
+    let url = null;
+  
+    if (!error) {
+        url = bucket.getPublicUrl(
+            data.Key.replace(`${BUCKET_NAME}/`, '')
+        ).publicURL;
+    }
+  
+    return { url, error };
+}
 

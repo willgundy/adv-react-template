@@ -2,8 +2,8 @@ import {  InputControl, SelectControl } from '../Form/FormControls/FormControls.
 import Button from '../Basic/Button/Button';
 import styles from './List.css';
 import { useEffect, useState } from 'react';
-import { useTypes } from '../../../State/Hooks/pokedex.js';
-import { useSearch } from '../../../State/Hooks/url.js';
+import { useTypes } from '../../../../State/Hooks/pokedex.js';
+import { useSearch } from '../../../../State/Hooks/url.js';
 
 export default function SearchBar() {
     const { types } = useTypes();

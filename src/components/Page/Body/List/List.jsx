@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { pokedex } from '../../../State/Hooks/pokedex';
+import { pokedex } from '../../../../State/Hooks/pokedex';
 import Section from '../Basic/Section/Section';
 import PokemonList from './PokemonList';
 import SearchBar from './SearchBar';
