@@ -1,0 +1,6 @@
+.Auth {
+    display: grid;
+    place-content: center;
+  
+    padding-top: 30px;
+  }

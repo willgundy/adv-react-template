@@ -31,14 +31,14 @@ export function usePlayers() {
 export function usePlayerActions() {
     const { playersDispatch } = useContext(NBADispatchContext);
 
-    const add = async (team) => {
-        const { data, error } = await addPlayer(team);
+    const add = async (player) => {
+        const { data, error } = await addPlayer(player);
         if (error) {
             showError(error.message);
         }
         if (data) {
             playersDispatch({ type: 'add', payload: data });
-            showSuccess(`Added ${data.fullName} successfully`);
+            showSuccess(`Added ${data.firstName} ${data.lastName} successfully`);
         }
     };
 
@@ -49,7 +49,7 @@ export function usePlayerActions() {
         }
         if (data) {
             playersDispatch({ type: 'remove', payload: data });
-            showSuccess(`Removed ${data.fullName} successfully`);
+            showSuccess(`Removed ${data.firstName} ${data.lastName} successfully`);
         }
     };
 
@@ -60,7 +60,7 @@ export function usePlayerActions() {
         }
         if (data) {
             playersDispatch({ type: 'update', payload: data });
-            showSuccess(`Updated ${data.fullName} successfully`);
+            showSuccess(`Updated ${data.firstName} ${data.lastName} successfully`);
         }
     };
 

@@ -1,10 +1,14 @@
 import { useRef, useState } from 'react';
 import styles from './PlayerPill.css';
+import { usePlayerActions } from '../../../../State/Hooks/player';
 
 export default function PlayerPill({ player }) {
     const [dragging, setDragging] = useState(false);
+    const { remove } = usePlayerActions();
 
     const dragPill = useRef();
+
+    const handleDelete = () => remove(player.id);
 
     const handleDragStart = (e) => {
         setDragging(true);
@@ -28,7 +32,7 @@ export default function PlayerPill({ player }) {
             <p>{`#${player.jersey}`}</p>
             <p className={styles.PlayerName}>{`${player.firstName} ${player.lastName}`}</p>
             <p>{player.pos}</p>
-            <span>ⓧ</span>
+            <span onClick={handleDelete}>ⓧ</span>
         </span>
     );
 }

@@ -20,7 +20,7 @@ function reducer(list, { type, payload }) {
 
 export default function NBAContextProvider({ children }) {
     const [teams, teamsDispatch] = useReducer(reducer, null);
-    const [players, playersDispatch] = useReducer(reducer, null);
+    const [players, playersDispatch] = useReducer(reducer, []);
     return (
         <NBAContext.Provider value={{ teams, players }}>
             <NBADispatchContext.Provider value={{ teamsDispatch, playersDispatch }}>
