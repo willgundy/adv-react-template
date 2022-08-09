@@ -10,10 +10,12 @@ export function usePlayers() {
 
     useEffect(() => {
         if (players) return;
+        let ignore = false;
         //figure out ignore use case
 
-        const fetchTeams = async () => {
+        const fetchPlayers = async () => {
             const { data, error } = await getAllPlayers();
+            if (ignore) return;
             if (error) {
                 setError(error);
             }
@@ -22,7 +24,9 @@ export function usePlayers() {
             }
         };
 
-        fetchTeams();
+        fetchPlayers();
+
+        return () => (ignore = true);
     }, []);
 
     return { error, players };

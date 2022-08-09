@@ -4,21 +4,21 @@ import { usePlayerActions } from '../../../../../State/Hooks/player';
 
 export default function PlayerPill({ player }) {
     const [dragging, setDragging] = useState(false);
-    const { remove } = usePlayerActions();
+    const { update } = usePlayerActions();
 
     const dragPill = useRef();
 
-    const handleDelete = () => remove(player.id);
+    const handleDelete = () => update({ ...player, teamId: null });
 
     const handleDragStart = (e) => {
         setDragging(true);
         dragPill.current = e.target;
         dragPill.current.addEventListener('dragend', handleDragEnd);
-        // console.log('drag start', player);
+        console.log('drag start', player);
     };
 
-    const handleDragEnd = () => {
-        // console.log('drag end');
+    const handleDragEnd = (e) => {
+        console.log('drag end', e.target);
         setDragging(false);
         dragPill.current.removeEventListener('dragend', handleDragEnd);
         dragPill.current = dragging;

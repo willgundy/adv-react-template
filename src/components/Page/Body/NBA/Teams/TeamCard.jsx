@@ -4,11 +4,13 @@ import PlayerPill from './PlayerPill';
 import styles from './TeamCard.css';
 import { useTeamActions } from '../../../../../State/Hooks/team';
 import AddPlayer from './AddPlayer';
+import { usePlayers } from '../../../../../State/Hooks/player';
 
 export default function TeamCard({ team }) {
     const { remove, update } = useTeamActions();
     const [editing, setEditing] = useState(false);
     const [name, setName] = useState(team.fullName);
+    const { players } = usePlayers();
 
     const handleRemove = () => remove(team.id);
 
@@ -49,7 +51,7 @@ export default function TeamCard({ team }) {
                 )}
             </div>
             <div className={styles.PlayerContainer}>
-                {team.players && team.players.map((player, i) => (
+                {players && players.filter(player => player.teamId === team.id).map((player, i) => (
                     <PlayerPill player={player} key={i} />
                 ))}
             </div>
